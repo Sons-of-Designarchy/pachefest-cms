@@ -4,7 +4,6 @@ import { Link, graphql } from "gatsby";
 import { getImage } from "gatsby-plugin-image";
 
 import Layout from "../components/Layout";
-import Features from "../components/Features";
 import BlogRoll from "../components/BlogRoll";
 import FullWidthImage from "../components/FullWidthImage";
 
@@ -12,11 +11,7 @@ import FullWidthImage from "../components/FullWidthImage";
 export const IndexPageTemplate = ({
   image,
   title,
-  heading,
   subheading,
-  mainpitch,
-  description,
-  intro,
 }) => {
   const heroImage = getImage(image) || image;
 
@@ -29,7 +24,7 @@ export const IndexPageTemplate = ({
             <div className="columns">
               <div className="column is-10 is-offset-1">
                 <div className="content">
-                  <div className="content">
+                  {/* <div className="content">
                     <div className="tile">
                       <h1 className="title">{mainpitch.title}</h1>
                     </div>
@@ -45,23 +40,54 @@ export const IndexPageTemplate = ({
                       <p>{description}</p>
                     </div>
                   </div>
-                  <Features gridItems={intro.blurbs} />
-                  <div className="columns">
+                  <Features gridItems={intro.blurbs} /> */}
+                  {/* <div className="columns">
                     <div className="column is-12 has-text-centered">
                       <Link className="btn" to="/products">
                         See all products
                       </Link>
                     </div>
-                  </div>
+                  </div> */}
                   <div className="column is-12">
                     <h3 className="has-text-weight-semibold is-size-2">
-                      Latest stories
+                      Esta semana
                     </h3>
                     <BlogRoll />
                     <div className="column is-12 has-text-centered">
                       <Link className="btn" to="/blog">
-                        Read more
+                        Ver todas las entradas
                       </Link>
+                    </div>
+                  </div>
+                  <div className="column is-12">
+                    <h1>¿Tienes un evento?</h1>
+                    <a href="#anuncia-tu-evento">
+                      publicalo en nuestro sitio
+                    </a>
+                  </div>
+                  <div className="column is-12">
+                    <h3 className="has-text-weight-semibold is-size-2">
+                      High Life
+                    </h3>
+                    <BlogRoll />
+                    <div className="column is-12 has-text-centered">
+                      <Link className="btn" to="/blog">
+                        Ver todas las entradas
+                      </Link>
+                    </div>
+                  </div>
+                  <div className="section">
+                    <div className="col-lg-6">
+                      <h6>Pachefest 2022</h6>
+                      <p>
+                        Across three stories of dance floors and stages, our
+                        focus is underground and unbound music, presented with
+                        love.
+                      </p>
+                      <a href="#">lee la reseña del evento -></a>
+                    </div>
+                    <div className="col-lg-6">
+                      pachefest 2022 image
                     </div>
                   </div>
                 </div>
