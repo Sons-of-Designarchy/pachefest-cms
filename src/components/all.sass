@@ -1,14 +1,110 @@
 @import "~bulma/sass/utilities/initial-variables"
 
-// Config vars
-// Kaldi logo brand color: #FD461E
-$kaldi-red: #D64000
 $kaldi-red-invert: #fff
+$lime: #E1F478
+$purple: #E6C3F2
+$yellow: #F8E16E
+$green: #AEDD89
+$orange: #E48329
 
-$primary: $kaldi-red
+$primary: #000
 $primary-invert: $kaldi-red-invert
-$body-color: #333
-$black: #2b2523
+$body-color: #000
+$black: #000
+
+// Reset
+
+html, body 
+  font-size: 18px
+
+body, button, input, textarea
+  font-family: Apercu Mono Pro!important
+
+hr
+  background: $black !important
+  height: 1px !important
+  margin: 0.5rem 0 1.5rem
+
+// Helper classes
+
+.sans-serif
+  font-family: Cotham Sans!important
+
+.uppercase, .btn, .label
+  text-transform: uppercase
+  letter-spacing: 0.5px
+
+// Layout classes
+
+.d-flex
+  display: flex
+
+.align-items-center
+  align-items: center
+
+.flex-1
+  flex: 1
+
+.section
+  padding: 3rem 0
+
+.section-lime
+  background: $lime
+
+.py-5
+  padding: 3rem 0
+
+// images
+
+  .img-outlined
+    border: 1px solid $dark
+    border-radius: 1rem
+    display: block
+
+// Labels
+
+.label 
+  border-radius: 1rem
+  border: 1px solid $black
+  background: #fff
+  display: inline-flex
+  line-height: 1
+  padding: 4px 8px
+  font-size: 0.8rem
+  font-weight: 400!important
+
+.label-lg
+  padding: 8px 12px
+
+// buttons
+
+  .btn
+    display: inline-block
+    text-transform: uppercase
+    padding: 12px 16px 10px
+    font-size: 0.8rem
+    line-height: 1
+    border-radius: .25rem
+    text-decoration: none
+    font-weight: 700
+    text-align: center
+    -webkit-transition: all .15s ease
+    transition: all .15s ease
+    color: #000
+
+// post
+
+  .post
+    background: blue
+
+  .post-image-container 
+    position: relative
+
+  .post-category
+    position: absolute
+    top: 0
+
+// other shit
 
 .navbar .navbar-menu
   box-shadow: none !important
@@ -28,7 +124,6 @@ $black: #2b2523
     margin-bottom: 1.5rem
     margin-top: 0
 
-// Helper Classes
 .full-width-image-container
   width: 100vw
   height: 400px
@@ -50,23 +145,6 @@ $black: #2b2523
     display: flex
     justify-content: center
     align-items: center
-
-.btn
-    display: inline-block
-    padding: 12px 16px 10px
-    font-size: 18px
-    font-size: 1rem
-    line-height: 1.25
-    background-color: #fff
-    border-radius: .25rem
-    text-decoration: none
-    font-weight: 700
-    color: #CC3700
-    text-align: center
-    -webkit-box-shadow: inset 0 0 0 2px #CC3700
-    box-shadow: inset 0 0 0 2px #f40
-    -webkit-transition: all .15s ease
-    transition: all .15s ease
 
 .margin-top-0
   margin-top: 0 !important

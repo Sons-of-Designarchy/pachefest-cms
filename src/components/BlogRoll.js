@@ -11,18 +11,20 @@ class BlogRollTemplate extends React.Component {
     console.log(posts);
 
     return (
-      <div className="columns is-multiline">
+      <div className="columns carousel-scroll">
         {posts &&
           posts.map(({ node: post }) => (
-            <div className="is-parent column is-6" key={post.id}>
-              <article
-                className={`blog-list-item tile is-child box notification ${
-                  post.frontmatter.featuredpost ? 'is-featured' : ''
+            <div className="is-parent column is-3" key={post.id}>
+              <Link
+                to={post.fields.slug}
+                className={`${
+                  post.frontmatter.featuredpost ? 'is-featured' : 'post'
                 }`}
               >
-                <header>
-                  {post.frontmatter.featuredimage ? (
-                    <div className="featured-thumbnail">
+                {post.frontmatter.featuredimage ? (
+                  <div className="post-image-container">
+                    <span className="post-category label">{post.frontmatter.tags[0]}</span>
+                    <div className="img-outlined">
                       <PreviewCompatibleImage
                         imageInfo={{
                           image: post.frontmatter.featuredimage,
@@ -36,29 +38,16 @@ class BlogRollTemplate extends React.Component {
                         }}
                       />
                     </div>
-                  ) : null}
-                  <p className="post-meta">
-                    <Link
-                      className="title has-text-primary is-size-4"
-                      to={post.fields.slug}
-                    >
-                      {post.frontmatter.title}
-                    </Link>
-                    <span> &bull; </span>
-                    <span className="subtitle is-size-5 is-block">
-                      {post.frontmatter.date}
-                    </span>
+                  </div>
+                ) : null}
+                <header>
+                <h3>{post.frontmatter.title}</h3>
+                  <p className="post-meta d-flex">
+                    <span className="label">{post.frontmatter.tags[0]}</span>
+                    <span className="label">{post.frontmatter.tags[1]}</span>
                   </p>
                 </header>
-                <p>
-                  {post.excerpt}
-                  <br />
-                  <br />
-                  <Link className="button" to={post.fields.slug}>
-                    Keep Reading →
-                  </Link>
-                </p>
-              </article>
+              </Link>
             </div>
           ))}
       </div>
@@ -86,7 +75,6 @@ export default function BlogRoll() {
           ) {
             edges {
               node {
-                excerpt(pruneLength: 400)
                 id
                 fields {
                   slug
@@ -96,10 +84,11 @@ export default function BlogRoll() {
                   templateKey
                   date(formatString: "MMMM DD, YYYY")
                   featuredpost
+                  tags
                   featuredimage {
                     childImageSharp {
                       gatsbyImageData(
-                        width: 120
+                        width: 600
                         quality: 100
                         layout: CONSTRAINED
                       )
